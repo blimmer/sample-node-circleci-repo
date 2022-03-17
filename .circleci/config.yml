@@ -1,0 +1,15 @@
+version: 2.1
+
+workflows:
+  on_commit:
+    jobs:
+      - test
+
+jobs:
+  test:
+    docker:
+      - image: cimg/node:16.14.0
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn test
